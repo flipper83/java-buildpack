@@ -23,8 +23,9 @@ $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'java_buildpack/buildpack'
 
 app_dir = ARGV[0]
+build = ARGV[1]
 
 puts "Adding gdaldem support"
-system "tar xzf $buildpack/vendor/gdaldem.tar.gz -C $build/"
+system "tar xzf #{app_dir}/vendor/gdaldem.tar.gz -C #{build}/"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Compile failed with exception %s', &:compile)
