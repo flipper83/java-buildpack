@@ -26,5 +26,7 @@ app_dir = ARGV[0]
 
 
 puts "-----> Running flipper build finalize"
+system 'add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update'
+system 'apt-get install gdal-bin'
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Finalize failed with exception %s', &:compile)
