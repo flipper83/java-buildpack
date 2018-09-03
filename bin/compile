@@ -24,6 +24,7 @@ require 'java_buildpack/buildpack'
 
 app_dir = ARGV[0]
 
-echo "-----> Running flipper build compile"
+puts "Adding gdaldem support"
+system "tar xzf $buildpack/vendor/gdaldem.tar.gz -C $build/"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Compile failed with exception %s', &:compile)
