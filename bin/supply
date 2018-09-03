@@ -8,5 +8,3 @@ DEPS_DIR=$3
 DEPS_IDX=$4
 
 echo "-----> Running flipper build finalize"
-add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
-apt-get install gdal-bin
