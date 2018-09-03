@@ -1,9 +1,22 @@
-#!/bin/bash
-set -euo pipefail
+#!/usr/bin/env ruby
 
-BUILD_DIR=$1
-CACHE_DIR=$2
-DEPS_DIR=$3
-DEPS_IDX=$4
+#sync output
 
-echo "-----> Running flipper build finalize"
+$stdout.sync = true
+
+build_path = ARGV[0]
+cache_path = ARGV[1]
+deps_path = ARGV[2]
+index = ARGV[3]
+
+install_ruby
+
+private
+
+def install_ruby
+  puts "flipper supply"
+
+  # !!! build tasks go here !!!
+  # download ruby 
+  # install ruby
+end
