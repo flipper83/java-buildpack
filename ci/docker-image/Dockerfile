@@ -9,9 +9,6 @@ RUN apt-get update && apt-get install -y \
     python \
     zip \
     zlib1g-dev \
-    gdal\
-    gdal-bin \
-    libgdal-java\
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -24,8 +21,6 @@ RUN git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv \
  && src/configure \
  && make -C src \
  && ln -s $HOME/.rbenv/bin/rbenv /usr/local/bin
- 
-RUN git clone https://github.com/flipper83/trabajando-en-diferido/trabajando-en-diferido.git $HOME/
 
 RUN eval "$(rbenv init -)" \
  && git clone https://github.com/rbenv/ruby-build.git $(rbenv root)/plugins/ruby-build
