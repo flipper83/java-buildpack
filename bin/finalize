@@ -23,9 +23,9 @@ $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'java_buildpack/buildpack'
 
 app_dir = ARGV[0]
+build = ARGV[1]
 
-puts "check var"
-# The location of the pre-compiled cryptography binary.
-system "curl https://s3.amazonaws.com/boundless-cloudfoundry/cflinuxfs2/osgeolib-0.0.1-linux-x64.tar.gz -s | tar zxv -C ./ &> /dev/null"
+puts "Adding gdaldem support"
+system "tar xzf #{app_dir}/vendor/gdaldem.tar.gz -C #{build}/"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Finalize failed with exception %s', &:compile)
