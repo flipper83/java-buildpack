@@ -33,7 +33,11 @@ puts "DEPS_PATH: #{deps_path}"
 puts "Index: #{index}"
 puts "Index: #{index}"
 puts "dirname: #{File.dirname("$0")}"
-system "pwd"
+system "cd .. & pwd"
+system "ls ../"
+system "ls app"
+system "ls deps"
+system "ls tmp"
 
 puts "Adding gdaldem support #{deps_path}/#{index}"
 myPath =  `ls #{deps_path} 2>&1`;
