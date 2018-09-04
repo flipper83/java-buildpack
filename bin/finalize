@@ -53,6 +53,6 @@ puts "Adding gdaldem support #{deps_path}/#{index}"
 
 myPath =  `ls #{deps_path} 2>&1`
 puts "tar vendor.tar.gz to path -> #{build}/vendor/"
-system "tar xzf #{app_dir}/conf/gdal/gdaldem.tar.gz -C #{build}/vendor/"
+system "tar xzf #{app_dir}/conf/gdal/vendor.tar.gz -C #{build}/vendor/"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Finalize failed with exception %s', &:compile)
