@@ -46,7 +46,7 @@ SOURCE_TARBALL = "http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz"
 `tar xzf ./gdal-1.11.0.tar.gz`
 system "ls"
 puts "go to dir"
-system "cd gdal-1.11.0 && ./configure --prefix=#{build} & make & make install"
+system "cd gdal-1.11.0 & ./configure --prefix=#{build} && make && make install"
 puts "-------------------"
 
 puts "Adding gdaldem support #{deps_path}/#{index}"
