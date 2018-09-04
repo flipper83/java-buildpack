@@ -24,10 +24,12 @@ require 'java_buildpack/buildpack'
 
 app_dir = ARGV[0]
 build = ARGV[1]
+deps_path = ARGV[2]
+index = ARGV[3]
 
-puts "Adding gdaldem support #{build}"
+puts "Adding gdaldem support #{deps_path}#{index}"
 myPath = system "pwd"
 puts "my path #{myPath}"
-system "tar xzf ./app/vendor/gdaldem.tar.gz -C #{build}/"
+system "tar xzf #{deps_path}#{index}/vendor/gdaldem.tar.gz -C #{build}/"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Finalize failed with exception %s', &:compile)
