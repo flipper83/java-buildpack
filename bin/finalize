@@ -42,8 +42,8 @@ system "whereis gdal"
 puts "compile -------------------"
 
 SOURCE_TARBALL = "http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz"
-`curl -L #{SOURCE_TARBALL} | tar zx`
-`cd gdal-1.11.0`
+`curl -L #{SOURCE_TARBALL} | tar xz -C #{build}`
+`cd #{build}gdal-1.11.0`
 `./configure --prefix=#{build}  &&`
 `make`
 `make instal`
