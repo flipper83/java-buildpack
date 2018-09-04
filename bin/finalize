@@ -46,7 +46,8 @@ SOURCE_TARBALL = "http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz"
 `tar xzf ./gdal-1.11.0.tar.gz`
 system "ls"
 puts "go to dir"
-`cd gdal-1.11.0` 
+system "cd gdal-1.11.0"
+puts "in the dir"
 system "pwd"
 system "ls"
 `./configure --prefix=#{build}  &&`
