@@ -33,14 +33,14 @@ puts "DEPS_PATH: #{deps_path}"
 puts "Index: #{index}"
 puts "dirname: #{File.dirname("$0")}"
 puts "ls app bin"
-system "ls #{app_dir}/bin"
+system "ls #{app_dir}"
 puts "ls gdal"
-system "ls #{app_dir}/bin/gdal"
+system "ls #{app_dir}/conf/gdal"
 
 
 puts "Adding gdaldem support #{deps_path}/#{index}"
 myPath =  `ls #{deps_path} 2>&1`;
 puts "my path #{myPath}"
-system "tar xzf #{app_dir}/bin/gdal/gdaldem.tar.gz -C #{build}/"
+system "tar xzf #{app_dir}/conf/gdal/gdaldem.tar.gz -C #{build}/"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Finalize failed with exception %s', &:compile)
