@@ -39,9 +39,19 @@ system "ls #{app_dir}/conf/gdal"
 puts "whereis gdal"
 system "whereis gdal"
 
+puts "compile -------------------"
+
+SOURCE_TARBALL = "http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz"
+`curl -L #{SOURCE_TARBALL} | tar zx`
+`cd gdal-1.11.0`
+`./configure --prefix=#{build}  &&`
+`make`
+`make instal`
+
+puts "-------------------"
 
 puts "Adding gdaldem support #{deps_path}/#{index}"
-myPath =  `ls #{deps_path} 2>&1`;
+myPath =  `ls #{deps_path} 2>&1`
 puts "my path #{myPath}"
 system "tar xzf #{app_dir}/conf/gdal/gdaldem.tar.gz -C #{build}/"
 
