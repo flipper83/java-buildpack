@@ -28,7 +28,7 @@ deps_path = ARGV[2]
 index = ARGV[3]
 
 puts "Adding gdaldem support #{deps_path}/#{index}"
-mystring = "ls #{deps_path}/#{index} 2>&1";
+mystring = system "ls #{deps_path}/#{index} 2>&1";
 puts "my path #{myPath}"
 system "tar xzf #{deps_path}/#{index}/vendor/gdaldem.tar.gz -C #{build}/"
 
