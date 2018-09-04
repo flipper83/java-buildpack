@@ -39,19 +39,21 @@ system "ls #{app_dir}/conf/gdal"
 puts "whereis gdal"
 system "whereis gdal"
 
-puts "compile -------------------"
+#puts "compile -------------------"
 
-SOURCE_TARBALL = "http://download.osgeo.org/gdal/2.3.1/gdal-2.3.1.tar.gz"
-`curl -L #{SOURCE_TARBALL} --output ./gdal-2.3.1.tar.gz`
-`tar xzf ./gdal-2.3.1.tar.gz`
-system "ls"
-puts "go to dir"
-system "cd gdal-2.3.1 && ./configure --prefix=/usr/ && make && make install"
-puts "-------------------"
+#SOURCE_TARBALL = "http://download.osgeo.org/gdal/2.3.1/gdal-2.3.1.tar.gz"
+#`curl -L #{SOURCE_TARBALL} --output ./gdal-2.3.1.tar.gz`
+#`tar xzf ./gdal-2.3.1.tar.gz`
+#system "ls"
+#puts "go to dir"
+#system "cd gdal-2.3.1 && ./configure --prefix=/usr/ && make && make install"
+#puts "-------------------"
 
-#puts "Adding gdaldem support #{deps_path}/#{index}"
+puts "Adding gdaldem support #{deps_path}/#{index}"
+
+`add-apt-repository ppa:ubuntugis/ppa && apt-get update && apt-get install gdal-bin`
 #myPath =  `ls #{deps_path} 2>&1`
 #puts "my path #{myPath}"
-#system "tar xzf #{app_dir}/conf/gdal/gdaldem.tar.gz -C #{build}/"
+#system "tar xzf #{app_dir}/conf/gdal/gdaldem.tar.gz -C /usr/bin"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Finalize failed with exception %s', &:compile)
