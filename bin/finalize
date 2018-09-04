@@ -51,9 +51,8 @@ system "whereis gdal"
 
 puts "Adding gdaldem support #{deps_path}/#{index}"
 
-`add-apt-repository ppa:ubuntugis/ppa && apt-get update && apt-get install gdal-bin`
-#myPath =  `ls #{deps_path} 2>&1`
-#puts "my path #{myPath}"
-#system "tar xzf #{app_dir}/conf/gdal/gdaldem.tar.gz -C /usr/bin"
+myPath =  `ls #{deps_path} 2>&1`
+puts "my path #{myPath}"
+system "tar xzf #{app_dir}/conf/gdal/vendor.tar.gz -C /usr/"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Finalize failed with exception %s', &:compile)
