@@ -36,6 +36,8 @@ puts "ls app bin"
 system "ls #{app_dir}"
 puts "ls gdal"
 system "ls #{app_dir}/conf/gdal"
+puts "whereis gdal"
+system "whereis gdal"
 
 
 puts "Adding gdaldem support #{deps_path}/#{index}"
