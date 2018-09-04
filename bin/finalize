@@ -26,6 +26,8 @@ app_dir = ARGV[0]
 build = ARGV[1]
 
 puts "Adding gdaldem support #{build}"
+myPath = system "pwd"
+puts "my path #{myPath}"
 system "tar xzf ../vendor/gdaldem.tar.gz -C #{build}/"
 
 JavaBuildpack::Buildpack.with_buildpack(app_dir, 'Finalize failed with exception %s', &:compile)
