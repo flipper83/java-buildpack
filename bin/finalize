@@ -27,6 +27,13 @@ build = ARGV[1]
 deps_path = ARGV[2]
 index = ARGV[3]
 
+puts "APP DIR: #{app_dir}"
+puts "BUILD: #{build}"
+puts "DEPS_PATH: #{deps_path}"
+puts "Index: #{index}"
+puts "Index: #{index}"
+puts "dirname: #{File.dirname("$0")}"
+
 puts "Adding gdaldem support #{deps_path}/#{index}"
 myPath =  `ls #{deps_path} 2>&1`;
 puts "my path #{myPath}"
