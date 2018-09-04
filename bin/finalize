@@ -32,6 +32,8 @@ puts "BUILD: #{build}"
 puts "DEPS_PATH: #{deps_path}"
 puts "Index: #{index}"
 puts "dirname: #{File.dirname("$0")}"
+puts "ls app bin"
+system "ls #{app_dir}/bin"
 puts "ls gdal"
 system "ls #{app_dir}/bin/gdal"
 
