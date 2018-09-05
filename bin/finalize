@@ -53,7 +53,8 @@ puts "Adding gdaldem support #{deps_path}/#{index}"
 
 myPath =  `ls #{deps_path} 2>&1`
 puts "tar vendor.tar.gz to path -> #{build}/vendor/"
-system "tar xzf #{app_dir}/conf/gdal/vendor.tar.gz -C #{build}/vendor/"
+`mkdir #{app_dir}/vendor/`
+system "tar xzf #{app_dir}/conf/gdal/vendor.tar.gz -C #{app_dir}/vendor/"
 system "echo $PATH"
 system "echo $LD_LIBRARY_PATH"
 
